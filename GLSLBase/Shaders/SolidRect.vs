@@ -26,9 +26,9 @@ void main()
 	newPos.x = a_Position.x + cos(a_RandValue * 2 * 3.14);
 	newPos.y = a_Position.y + sin(a_RandValue * 2 * 3.14);
 
-	newPos.x = a_Position.x + (16*pow(sin(a_RandValue* 2 * 3.14),3))*0.03;
-	newPos.y = a_Position.y + (13*cos(a_RandValue * 2 * 3.14) - 5*cos(2*a_RandValue * 2 * 3.14) 
-				- 2*cos(3*a_RandValue * 2 * 3.14) - cos(4*a_RandValue * 2 * 3.14))*0.03;
+	newPos.x = a_Position.x + (16 * pow(sin(a_RandValue * 2 * 3.14), 3)) * 0.03;
+	newPos.y = a_Position.y + (13 * cos(a_RandValue * 2 * 3.14) - 5 * cos(2 * a_RandValue * 2 * 3.14) 
+				- 2*cos(3*a_RandValue * 2 * 3.14) - cos(4 * a_RandValue * 2 * 3.14)) * 0.03;
 
 	vec4 color = vec4(0);
 
@@ -41,7 +41,7 @@ void main()
 		/*newTime = mod(newTime, a_LifeTime);
 		newPos = newPos + vec3(newTime, 0, 0);
 		newPos.y = newPos.y + (a_A * newTime) * sin(newTime * 3.14 * 2 * a_P);*/
-
+	
 		newTime = mod(newTime, a_LifeTime);
 		float t = newTime;
 		float tt = newTime*newTime;
@@ -50,8 +50,9 @@ void main()
 		vec3 normalV = normalize(currVel * c_NV);
 		newPos = newPos + a_Velocity * t + 0.5 * newAcc * tt;
 		newPos = newPos + normalV * a_A * sin(newTime * 2 * 3.14 * a_P);
-
-		float intensity = 1.0 - t/a_LifeTime;
+	
+		//float intensity = 1.0 - t / a_LifeTime;
+		float intensity = sin(t * 3.14 * 20);
 		color = a_Color * intensity;
 	}
 
