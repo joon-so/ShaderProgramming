@@ -55,9 +55,9 @@ vec4 Radar()
 	float ringRadius = mod(u_Time, 0.7);
 	float radarWidth = 0.015;
 
-	if(d > ringRadius && d < ringRadius + radarWidth)
+	if(d > ringRadius && d < ringRadius + radarWidth )
 	{
-		returnColor = vec4(0.5);
+		returnColor = vec4(d / ringRadius - 0.5);
 
 		for(int i =0; i<10; i++)
 		{
