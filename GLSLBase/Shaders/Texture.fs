@@ -27,7 +27,13 @@ vec4 p2()
 	return returnColor;
 }
 
+vec4 SingleTexture()
+{
+	return texture(u_TexSampler, v_TexPos);
+}
+
 void main()
 {
-	FragColor = p2();
+	//FragColor = p2();
+	FragColor = SingleTexture();
 }
