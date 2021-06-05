@@ -1041,6 +1041,7 @@ void Renderer::VSGridMeshSandBox()
 
 	g_Time += 0.008;
 }
+
 int gTexIndex = 0;
 void Renderer::DrawSimpleTexture()
 {
@@ -1057,8 +1058,11 @@ void Renderer::DrawSimpleTexture()
 	glBindBuffer(GL_ARRAY_BUFFER, m_VBORect_PosTex);
 	glVertexAttribPointer(attribTexPosLoc, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 5, (GLvoid*)(sizeof(float) * 3));
 
+	GLuint uniformStep = glGetUniformLocation(shader, "u_Step");
+	glUniform1f(uniformStep, (float)gTexIndex);
+
 	GLuint uniformTex = glGetUniformLocation(shader, "u_TexSampler");
-	glUniform1i(uniformTex, gTexIndex);
+	glUniform1i(uniformTex, 0);
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, m_TextureIDTotal);
 	glActiveTexture(GL_TEXTURE1);
