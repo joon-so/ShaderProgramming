@@ -43,5 +43,6 @@ vec4 SpriteTexture()
 void main()
 {
 	//FragColor = p2();
-	FragColor = SpriteTexture();
+	//FragColor = SpriteTexture();
+	FragColor = SingleTexture();
 }
